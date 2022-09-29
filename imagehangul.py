@@ -2,8 +2,8 @@ import glob
 import io
 import os
 import random
-
 import numpy
+
 from PIL import Image, ImageFont, ImageDraw
 from scipy.ndimage.interpolation import map_coordinates
 from scipy.ndimage.filters import gaussian_filter
@@ -84,13 +84,12 @@ class ImageHangul:
                     self.save(distorted_image, character)
 
     def save(self, img, character):
-        print(self.count)
         file_string = 'image_{}.jpeg'.format(self.count)
         file_path = os.path.join(DEFAULT_IMAGE_DIR, file_string)
 
         if self.count == 1:
             labels_csv = io.open(os.path.join(DEFAULT_OUTPUT_DIR, 'labels-map.csv'), 'w',
-                                encoding='utf-8')
+                                 encoding='utf-8')
         else:
             labels_csv = io.open(os.path.join(DEFAULT_OUTPUT_DIR, 'labels-map.csv'), 'a',
                                  encoding='utf-8')
