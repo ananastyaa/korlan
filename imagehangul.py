@@ -36,7 +36,6 @@ class ImageHangul:
     def count(self):
         return self.__count
 
-
     @property
     def distortion_count(self):
         return self.__distortion_count
@@ -82,9 +81,7 @@ class ImageHangul:
                         sigma=random.randint(5, 6)
                     )
                     distorted_image = Image.fromarray(distorted_array)
-                    self.save(image, character)
-
-        print('Сгенерировано {} изображений.'.format(self.count))
+                    self.save(distorted_image, character)
 
     def save(self, img, character):
         file_string = 'image_{}.jpeg'.format(self.count)
