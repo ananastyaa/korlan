@@ -1,6 +1,5 @@
 import os
 
-from image_generate import generate
 from imagehangul import ImageHangul
 
 SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
