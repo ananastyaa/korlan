@@ -84,11 +84,16 @@ class ImageHangul:
                     self.save(distorted_image, character)
 
     def save(self, img, character):
+        print(self.count)
         file_string = 'image_{}.jpeg'.format(self.count)
         file_path = os.path.join(DEFAULT_IMAGE_DIR, file_string)
 
-        labels_csv = io.open(os.path.join(DEFAULT_OUTPUT_DIR, 'labels-map.csv'), 'w',
-                             encoding='utf-8')
+        if self.count == 1:
+            labels_csv = io.open(os.path.join(DEFAULT_OUTPUT_DIR, 'labels-map.csv'), 'w',
+                                encoding='utf-8')
+        else:
+            labels_csv = io.open(os.path.join(DEFAULT_OUTPUT_DIR, 'labels-map.csv'), 'a',
+                                 encoding='utf-8')
         labels_csv.write(u'{},{}\n'.format(file_path, character))
 
         img.save(file_path, 'JPEG')
